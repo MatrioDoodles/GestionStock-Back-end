@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Client;
@@ -63,10 +62,9 @@ public class InvoiceController {
 	}
 
 	@DeleteMapping("/DelInvoice")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Invoice Invoice) {
+	public void DelAscenseur(@RequestBody Invoice Invoice) {
 		
 		InvoiceService.deleteInvoice(Invoice);
-			return "Facture Supprimé";
+			//return "Facture Supprimé";
 	}
 }

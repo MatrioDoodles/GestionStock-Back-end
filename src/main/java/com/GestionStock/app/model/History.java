@@ -32,7 +32,7 @@ public class History implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_last_interacting_user")
 	private User last_interacting_user;
-	private long tenant_id;
+	private long tenantid;
 	
 	public long getId() {
 		return id;
@@ -71,10 +71,10 @@ public class History implements Serializable {
 		this.last_interacting_user = last_interacting_user;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 
 }

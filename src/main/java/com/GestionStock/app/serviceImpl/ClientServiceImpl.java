@@ -33,8 +33,8 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Transactional
-	public void deleteClient(Client Client) {
-		ClientRepository.delete(Client);
+	public void deleteClient(long id) {
+		ClientRepository.deleteById(id);
 		
 	}
 
@@ -45,11 +45,11 @@ public class ClientServiceImpl implements ClientService {
 
 	@Transactional(readOnly = true)
 	public List<Client> getClientsByTenantId(long tenant_id) {
-		return ClientRepository.getClientsByTenantId(tenant_id);
+		return ClientRepository.findBytenantid(tenant_id);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbClientsByTenantId(long tenant_id) {
-		return ClientRepository.getClientsByTenantId(tenant_id).size();
+		return ClientRepository.findBytenantid(tenant_id).size();
 	}
 }

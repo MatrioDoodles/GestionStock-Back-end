@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Category;
@@ -69,10 +68,9 @@ public class ProductController {
 	}
 
 	@DeleteMapping("/DelProduct")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Product Product) {
+	public void DelAscenseur(@RequestBody Product Product) {
 		
 		ProductService.deleteProduct(Product);
-			return "Produit Supprimé";
+			//return "Produit Supprimé";
 	}
 }

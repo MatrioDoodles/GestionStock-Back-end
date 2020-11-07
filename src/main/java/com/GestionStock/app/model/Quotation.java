@@ -24,7 +24,7 @@ public class Quotation implements Serializable
 	@Column(name="ID_QUOTATION", unique = true)
 	private long id;
 	private String amount;
-	private long tenant_id;
+	private long tenantid;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_client")
 	private Client client;
@@ -67,10 +67,10 @@ public class Quotation implements Serializable
 		this.amount = amount;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 
 }

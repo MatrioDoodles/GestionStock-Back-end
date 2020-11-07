@@ -27,22 +27,22 @@ public class Category implements Serializable {
 	private long id;
 	private String label;
 	private String description;
-	private long tenant_id;
-	@OneToMany(mappedBy = "category_primary", fetch = FetchType.EAGER)
+	private long tenantid;
+	@OneToMany(mappedBy = "categoryprimary", fetch = FetchType.EAGER)
 	private Set<Category> sous_category;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_category_primary")
-	private Category category_primary;
+	private Category categoryprimary;
 	@OneToMany(mappedBy = "category",fetch = FetchType.EAGER)
 	private Set<Product> products;
 	
 	
 	
 	public Category getCategory_primary() {
-		return category_primary;
+		return categoryprimary;
 	}
 	public void setCategory_primary(Category category_primary) {
-		this.category_primary = category_primary;
+		this.categoryprimary = category_primary;
 	}
 	public Set<Category> getSous_category() {
 		return sous_category;
@@ -75,10 +75,10 @@ public class Category implements Serializable {
 		this.description = description;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 
 }

@@ -46,16 +46,16 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Transactional(readOnly = true)
 	public List<Category> getSousCategories(Category category_primary) {
-		return CategoryRepository.getSousCategories(category_primary);
+		return CategoryRepository.findBycategoryprimary(category_primary);
 	}
 
 	@Transactional(readOnly = true)
 	public List<Category> getCategoriesByTenantId(long tenant_id) {
-		return CategoryRepository.getCategoriesByTenantId(tenant_id);
+		return CategoryRepository.findBytenantid(tenant_id);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbCategoriesByTenantId(long tenant_id) {
-		return CategoryRepository.getCategoriesByTenantId(tenant_id).size();
+		return CategoryRepository.findBytenantid(tenant_id).size();
 	}
 }

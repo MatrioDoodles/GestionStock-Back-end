@@ -11,6 +11,6 @@ import com.GestionStock.app.model.Order;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-	public List<Order> getOrdersByTenantId(long tenant_id);
-	public List<Order> getOrdersByClient(Client client);
+	public List<Order> findBytenantid(long tenant_id);
+	public List<Order> findByclient(Client client);
 }

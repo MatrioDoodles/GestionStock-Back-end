@@ -32,7 +32,7 @@ public class Product implements Serializable {
 	private Boolean perishable;
 	private long amount;
 	private long supply_amount;
-	private long tenant_id;
+	private long tenantid;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_supplier")
 	private Supplier supplier;
@@ -134,10 +134,10 @@ public class Product implements Serializable {
 		this.supply_amount = supply_amount;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 	public Supplier getSupplier() {
 		return supplier;

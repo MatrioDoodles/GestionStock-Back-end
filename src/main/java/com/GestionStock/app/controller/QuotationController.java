@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Client;
@@ -56,10 +55,9 @@ public class QuotationController {
 		return QuotationService.getQuotationsByTenantId(id);
 	}
 	@DeleteMapping("/DelQuotation")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Quotation Quotation) {
+	public void DelAscenseur(@RequestBody Quotation Quotation) {
 		
 		QuotationService.deleteQuotation(Quotation);
-			return "Devis Supprimé";
+			//return "Devis Supprimé";
 	}
 }

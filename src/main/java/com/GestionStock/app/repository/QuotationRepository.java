@@ -12,6 +12,6 @@ import com.GestionStock.app.model.Quotation;
 @Repository
 public interface QuotationRepository extends JpaRepository<Quotation, Long> {
 
-	public List<Quotation> getQuotationsByTenantId(long tenant_id);
-	public List<Quotation> getQuotationsByClients(Client client);
+	public List<Quotation> findBytenantid(long tenant_id);
+	public List<Quotation> findByclient(Client client);
 }

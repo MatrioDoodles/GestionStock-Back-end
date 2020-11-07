@@ -46,11 +46,11 @@ public class SupplierServiceImpl implements SupplierService{
 
 	@Transactional(readOnly = true)
 	public List<Supplier> getSuppliersByTenantId(long tenant_id) {
-		return SupplierRepository.getSuppliersByTenantId(tenant_id);
+		return SupplierRepository.findBytenantid(tenant_id);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbSuppliersByTenantId(long tenant_id) {
-		return SupplierRepository.getSuppliersByTenantId(tenant_id).size();
+		return SupplierRepository.findBytenantid(tenant_id).size();
 	}
 }

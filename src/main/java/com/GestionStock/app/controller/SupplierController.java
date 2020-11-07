@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Supplier;
@@ -51,10 +50,9 @@ public class SupplierController {
 		return SupplierService.getSuppliersByTenantId(id);
 	}
 	@DeleteMapping("/DelSupplier")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Supplier Supplier) {
+	public void DelAscenseur(@RequestBody Supplier Supplier) {
 		
 		SupplierService.deleteSupplier(Supplier);
-			return "Fournisseur Supprimé";
+			//return "Fournisseur Supprimé";
 	}
 }

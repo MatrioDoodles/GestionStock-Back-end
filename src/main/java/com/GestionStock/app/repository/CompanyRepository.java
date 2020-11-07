@@ -8,6 +8,6 @@ import com.GestionStock.app.model.Company;
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, Long> {
 	
-	public Company getCompanyByTenantId(long tenant_id);
+	public Company findBytenantid(long tenant_id);
 
 }

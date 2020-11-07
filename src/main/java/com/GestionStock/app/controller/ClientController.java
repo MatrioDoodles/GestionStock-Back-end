@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Client;
@@ -51,11 +50,10 @@ public class ClientController {
 		return ClientService.findClientById(id);
 	}
 
-	@DeleteMapping("/DelClient")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Client Client) {
+	@DeleteMapping("/DelClient/{id}")
+	public void DelAscenseur(@PathVariable long id) {
 		
-		ClientService.deleteClient(Client);
-			return "Client Supprimé";
+		ClientService.deleteClient(id);
+			//return "Client Supprimé";
 	}
 }

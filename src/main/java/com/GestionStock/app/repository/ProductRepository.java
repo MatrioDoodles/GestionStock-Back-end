@@ -14,9 +14,9 @@ import com.GestionStock.app.model.Warehouse;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	
-	public List<Product> getProductsByTenantId(long tenant_id);
-	public List<Product> getProductsByWarehouse(Warehouse warehouse);
-	public List<Product> getProductsByCaterory(Category category);
-	public List<Product> getProductsBySupplier(Supplier supplier);
+	public List<Product> findBytenantid(long tenant_id);
+	public List<Product> findBywarehouse(Warehouse warehouse);
+	public List<Product> findBycategory(Category category);
+	public List<Product> findBysupplier(Supplier supplier);
 	
 }

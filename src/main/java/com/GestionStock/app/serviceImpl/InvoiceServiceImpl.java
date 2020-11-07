@@ -47,21 +47,21 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 	@Transactional(readOnly = true)
 	public List<Invoice> getInvoicesByTenantId(long tenant_id) {
-		return InvoiceRepository.getInvoicesByTenantId(tenant_id);
+		return InvoiceRepository.findBytenantid(tenant_id);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbInvoicesByTenantId(long tenant_id) {
-		return InvoiceRepository.getInvoicesByTenantId(tenant_id).size();
+		return InvoiceRepository.findBytenantid(tenant_id).size();
 	}
 
 	@Transactional(readOnly = true)
 	public List<Invoice> getInvoicesClient(Client client) {
-		return InvoiceRepository.getInvoicesClient(client);
+		return InvoiceRepository.findByclient(client);
 	}
 
 	@Transactional(readOnly = true)
 	public Invoice getInvoiceByOrder(Order order) {
-		return InvoiceRepository.getInvoiceByOrder(order);
+		return InvoiceRepository.findByorder(order);
 	}
 }

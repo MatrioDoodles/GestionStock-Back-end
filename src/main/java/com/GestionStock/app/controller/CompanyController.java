@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Company;
@@ -52,10 +51,9 @@ public class CompanyController {
 	}
 
 	@DeleteMapping("/DelCompany")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Company Company) {
+	public void DelAscenseur(@RequestBody Company Company) {
 		
 		CompanyService.deleteCompany(Company);
-			return "Entreprise Supprimé";
+			//return "Entreprise Supprimé";
 	}
 }

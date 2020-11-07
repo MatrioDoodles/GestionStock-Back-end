@@ -46,16 +46,16 @@ public class OrderServiceImpl implements OrderService{
 
 	@Transactional(readOnly = true)
 	public List<Order> getOrdersByTenantId(long tenant_id) {
-		return OrderRepository.getOrdersByTenantId(tenant_id);
+		return OrderRepository.findBytenantid(tenant_id);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbOrdersByTenantId(long tenant_id) {
-		return OrderRepository.getOrdersByTenantId(tenant_id).size();
+		return OrderRepository.findBytenantid(tenant_id).size();
 	}
 
 	@Transactional(readOnly = true)
 	public List<Order> getOrdersByClient(Client client) {
-		return OrderRepository.getOrdersByClient(client);
+		return OrderRepository.findByclient(client);
 	}
 }

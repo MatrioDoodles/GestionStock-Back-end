@@ -49,26 +49,26 @@ public class ProductServiceImpl implements ProductService{
 
 	@Transactional(readOnly = true)
 	public List<Product> getProductsByTenantId(long tenant_id) {
-		return ProductRepository.getProductsByTenantId(tenant_id);
+		return ProductRepository.findBytenantid(tenant_id);
 	}
 
 	@Transactional(readOnly = true)
 	public List<Product> getProductsByWarehouse(Warehouse warehouse) {
-		return ProductRepository.getProductsByWarehouse(warehouse);
+		return ProductRepository.findBywarehouse(warehouse);
 	}
 
 	@Transactional(readOnly = true)
 	public List<Product> getProductsByCaterory(Category category) {
-		return ProductRepository.getProductsByCaterory(category);
+		return ProductRepository.findBycategory(category);
 	}
 
 	@Transactional(readOnly = true)
 	public List<Product> getProductsBySupplier(Supplier supplier) {
-		return ProductRepository.getProductsBySupplier(supplier);
+		return ProductRepository.findBysupplier(supplier);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbProductsByTenantId(long tenant_id) {
-		return ProductRepository.getProductsByTenantId(tenant_id).size();
+		return ProductRepository.findBytenantid(tenant_id).size();
 	}
 }

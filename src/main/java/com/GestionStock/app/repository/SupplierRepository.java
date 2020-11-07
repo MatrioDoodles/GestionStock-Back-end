@@ -9,5 +9,5 @@ import com.GestionStock.app.model.Supplier;
 @Repository
 public interface SupplierRepository extends JpaRepository<Supplier, Long> {
 
-	public List<Supplier> getSuppliersByTenantId(long tenant_id);
+	public List<Supplier> findBytenantid(long tenant_id);
 }

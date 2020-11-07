@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name="client")
 public class Client implements Serializable {
 	/**
@@ -29,7 +31,7 @@ public class Client implements Serializable {
 	private String phone;
 	private String adress;
 	private Float amount_bought;
-	private long tenant_id;
+	private long tenantid;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_user")
 	private User user;
@@ -40,10 +42,11 @@ public class Client implements Serializable {
 	@OneToMany(mappedBy = "client",fetch = FetchType.EAGER)
 	private Set<Invoice> invoices;
 	
-	
+	@JsonIgnore
 	public User getUser() {
 		return user;
 	}
+	@JsonIgnore
 	public void setUser(User user) {
 		this.user = user;
 	}
@@ -102,10 +105,10 @@ public class Client implements Serializable {
 		this.amount_bought = amount_bought;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 	
 

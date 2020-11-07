@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.History;
@@ -53,10 +52,9 @@ public class HistoryController {
 	}
 
 	@DeleteMapping("/DelHistory")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody History History) {
+	public void DelAscenseur(@RequestBody History History) {
 		
 		HistoryService.deleteHistory(History);
-			return "Historique Supprimé";
+			//return "Historique Supprimé";
 	}
 }

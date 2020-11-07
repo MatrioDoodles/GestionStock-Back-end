@@ -43,7 +43,7 @@ public class HistoryServiceImpl implements HistoryService{
 
 	@Transactional(readOnly = true)
 	public List<History> getHistoryByTenantId(long tenant_id) {
-		return historyRepository.getHistoryByTenantId(tenant_id);
+		return historyRepository.findBytenantid(tenant_id);
 	}
 
 }

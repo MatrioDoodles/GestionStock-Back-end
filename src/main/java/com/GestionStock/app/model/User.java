@@ -1,6 +1,8 @@
 package com.GestionStock.app.model;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,9 +16,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name="user")
-public class User implements Serializable {
+public class User implements UserDetails {
 
 	/**
 	 * 
@@ -33,8 +42,11 @@ public class User implements Serializable {
 	private String mail;
 	private String phone;
 	private String adress;
+	private String username;
 	private String picture;
 	private String password;
+	@Transient
+	private Collection<? extends GrantedAuthority> authorities;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_role")
 	private Role role;
@@ -60,7 +72,47 @@ public class User implements Serializable {
     @JoinColumn(name = "id_subscription")
 	private Subscription subscription;
 	
+	public User(long id, String name, String surname, String mail, String phone, String adress, String username,
+			String picture, String password, Role role,Set<User> users, Set<History> creating_users, 
+			Set<History> last_interacting_users, User tenant,Set<Product> products, Set<Quotation> quotations, 
+			Company company, Set<Client> clients,Subscription subscription,String roles) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.mail = mail;
+		this.phone = phone;
+		this.adress = adress;
+		this.username = username;
+		this.picture = picture;
+		this.password = password;
+		this.role = role;
+		this.users = users;
+		this.creating_users = creating_users;
+		this.last_interacting_users = last_interacting_users;
+		this.tenant = tenant;
+		this.products = products;
+		this.quotations = quotations;
+		this.company = company;
+		this.clients = clients;
+		this.subscription = subscription;
+		 List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+		    authorities.add(new SimpleGrantedAuthority(roles));
+
+		    this.authorities = authorities;
+	}
 	
+	
+
+	public User() {
+		super();
+		//this.authorities = null;
+		
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public Set<History> getCreating_users() {
 		return creating_users;
 	}
@@ -76,7 +128,6 @@ public class User implements Serializable {
 	public void setLast_interacting_users(Set<History> last_interacting_users) {
 		this.last_interacting_users = last_interacting_users;
 	}
-
 	public Set<User> getUsers() {
 		return users;
 	}
@@ -204,6 +255,41 @@ public class User implements Serializable {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+	@JsonIgnore
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+	}
+
+	@JsonIgnore
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	@JsonIgnore
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+	@JsonIgnore
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+	@JsonIgnore
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+	
+	@Override
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	

@@ -9,5 +9,6 @@ import com.GestionStock.app.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	public List<User> getUsersByTenantId(User tenant);
+	public List<User> findBytenant(User tenant);
+	public User findByusername(String username);
 }

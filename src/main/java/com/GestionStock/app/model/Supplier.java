@@ -31,7 +31,7 @@ public class Supplier implements Serializable {
 	private String logo;
 	private String description;
 	private String reference;
-	private long tenant_id;
+	private long tenantid;
 	@OneToMany(mappedBy = "supplier",fetch = FetchType.EAGER)
 	private Set<Product> products; 
 	
@@ -90,10 +90,10 @@ public class Supplier implements Serializable {
 		this.reference = reference;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 	public Set<Product> getIdproduct() {
 		return products;

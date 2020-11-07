@@ -9,5 +9,5 @@ import com.GestionStock.app.model.Client;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
-	public List<Client> getClientsByTenantId(long tenant_id);
+	public List<Client> findBytenantid(long tenant_id);
 }

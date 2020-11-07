@@ -45,11 +45,11 @@ public class WarehouseServiceImpl implements WarehouseService{
 
 	@Transactional(readOnly = true)
 	public List<Warehouse> getWarehousesByTenantId(long tenant_id) {
-		return WarehouseRepository.getWarehousesByTenantId(tenant_id);
+		return WarehouseRepository.findBytenantid(tenant_id);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbWarehousesByTenantId(long tenant_id) {
-		return WarehouseRepository.getWarehousesByTenantId(tenant_id).size();
+		return WarehouseRepository.findBytenantid(tenant_id).size();
 	}
 }

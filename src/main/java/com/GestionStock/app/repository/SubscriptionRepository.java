@@ -8,5 +8,5 @@ import com.GestionStock.app.model.Subscription;
 @Repository
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
 
-	public Subscription getSubscriptionsByTenantId(long tenant_id);
+	public Subscription findBytenantid(long tenant_id);
 }

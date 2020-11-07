@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Subscription;
@@ -49,10 +48,9 @@ public class SubscriptionController {
 	}
 
 	@DeleteMapping("/DelSubscription")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Subscription Subscription) {
+	public void DelAscenseur(@RequestBody Subscription Subscription) {
 		
 		SubscriptionService.deleteSubscription(Subscription);
-			return "Abonnement Supprimé";
+			//return "Abonnement Supprimé";
 	}
 }

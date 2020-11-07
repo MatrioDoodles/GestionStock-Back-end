@@ -23,7 +23,7 @@ public class Warehouse implements Serializable {
 	private String reference;
 	private String label;
 	private String type;
-	private long tenant_id;
+	private long tenantid;
 	@OneToMany(mappedBy = "warehouse",fetch = FetchType.EAGER)
 	private Set<Product> products;
 	
@@ -59,9 +59,9 @@ public class Warehouse implements Serializable {
 		this.type = type;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 }

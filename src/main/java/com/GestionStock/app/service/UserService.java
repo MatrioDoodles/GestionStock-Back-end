@@ -14,6 +14,7 @@ public interface UserService {
 	public User updateUser(User user);
 	public void deleteUser(User user);
 	public User findUserById(Long id_user);
+	public User findUserByUsername(String username);
 	public List<User> allUser();
 	public List<User> getUsersByTenantId(User tenant);
 	public long nbUsersByTenantId(User tenant);

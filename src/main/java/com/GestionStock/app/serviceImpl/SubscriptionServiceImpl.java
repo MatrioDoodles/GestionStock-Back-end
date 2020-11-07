@@ -46,6 +46,6 @@ public class SubscriptionServiceImpl  implements SubscriptionService{
 
 	@Transactional(readOnly = true)
 	public Subscription getSubscriptionsByTenantId(long tenant_id) {
-		return SubscriptionRepository.getSubscriptionsByTenantId(tenant_id);
+		return SubscriptionRepository.findBytenantid(tenant_id);
 	}
 }

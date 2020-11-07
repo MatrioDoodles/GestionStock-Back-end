@@ -45,12 +45,18 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional(readOnly = true)
 	public List<User> getUsersByTenantId(User tenant) {
-		return userRepository.getUsersByTenantId(tenant);
+		return userRepository.findBytenant(tenant);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbUsersByTenantId(User tenant) {
-		return userRepository.getUsersByTenantId(tenant).size();
+		return userRepository.findBytenant(tenant).size();
+	}
+
+	@Override
+	public User findUserByUsername(String username) {
+		// TODO Auto-generated method stub
+		return userRepository.findByusername(username);
 	}
 	
 	

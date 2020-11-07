@@ -12,7 +12,7 @@ import com.GestionStock.app.model.Order;
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 
-	public List<Invoice> getInvoicesByTenantId(long tenant_id);
-	public List<Invoice> getInvoicesClient(Client client);
-	public Invoice getInvoiceByOrder(Order order);
+	public List<Invoice> findBytenantid(long tenant_id);
+	public List<Invoice> findByclient(Client client);
+	public Invoice findByorder(Order order);
 }

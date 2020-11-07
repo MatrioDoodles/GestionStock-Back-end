@@ -35,11 +35,11 @@ public class Role implements Serializable {
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	public Set<User> getUsers() {
-		return users;
-	}
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
+//	public Set<User> getUsers() {
+//		return users;
+//	}
+//	public void setUsers(Set<User> users) {
+//		this.users = users;
+//	}
 
 }

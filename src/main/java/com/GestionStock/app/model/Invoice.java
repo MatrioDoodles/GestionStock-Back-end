@@ -25,7 +25,7 @@ public class Invoice implements Serializable {
 	private long id;
 	private Date creation_date;
 	private Date pay_date;
-	private long tenant_id;
+	private long tenantid;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_user")
 	private User user;
@@ -84,10 +84,10 @@ public class Invoice implements Serializable {
 		this.pay_date = pay_date;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 	
 }

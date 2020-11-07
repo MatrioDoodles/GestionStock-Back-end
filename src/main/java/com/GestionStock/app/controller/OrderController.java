@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Client;
@@ -57,10 +56,9 @@ public class OrderController {
 	}
 
 	@DeleteMapping("/DelOrder")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Order Order) {
+	public void DelAscenseur(@RequestBody Order Order) {
 		
 		OrderService.deleteOrder(Order);
-			return "Commande Supprimé";
+			//return "Commande Supprimé";
 	}
 }

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity(name="subscription")
 public class Subscription implements Serializable {
@@ -30,7 +32,7 @@ public class Subscription implements Serializable {
 //	private long warehouses_number;
 //	private long users_number;
 //	private long suppliers_number;
-	private long tenant_id;
+	private long tenantid;
 	@OneToOne(mappedBy = "subscription",fetch = FetchType.EAGER)
 	private User users;
 	
@@ -42,9 +44,11 @@ public class Subscription implements Serializable {
 	public void setPayed(boolean payed) {
 		this.payed = payed;
 	}
+	@JsonIgnore
 	public User getUsers() {
 		return users;
 	}
+	@JsonIgnore
 	public void setUsers(User users) {
 		this.users = users;
 	}
@@ -97,10 +101,10 @@ public class Subscription implements Serializable {
 //		this.suppliers_number = suppliers_number;
 //	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 	
 	

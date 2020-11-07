@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GestionStock.app.model.Role;
@@ -46,10 +45,9 @@ public class RoleController {
 	}
 
 	@DeleteMapping("/DelRole")
-	@ResponseBody
-	public String DelAscenseur(@RequestBody Role Role) {
+	public void DelAscenseur(@RequestBody Role Role) {
 		
 		RoleService.deleteRole(Role);
-			return "Role Supprimé";
+			//return "Role Supprimé";
 	}
 }

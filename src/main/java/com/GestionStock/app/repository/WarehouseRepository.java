@@ -9,5 +9,5 @@ import com.GestionStock.app.model.Warehouse;
 @Repository
 public interface WarehouseRepository extends JpaRepository<Warehouse, Long> {
 
-	public List<Warehouse> getWarehousesByTenantId(long tenant_id);
+	public List<Warehouse> findBytenantid(long tenant_id);
 }

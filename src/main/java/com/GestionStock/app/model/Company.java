@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name="company")
 public class Company implements Serializable {
 	
@@ -28,7 +30,7 @@ public class Company implements Serializable {
 	private String lang;
 	private String logo;
 	private String phone;
-	private long tenant_id;
+	private long tenantid;
 	@OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
 	private Set<Quotation> quotations;
 	@OneToMany(mappedBy = "company",fetch = FetchType.EAGER)
@@ -49,9 +51,11 @@ public class Company implements Serializable {
 	public void setInvoices(Set<Invoice> invoices) {
 		this.invoices = invoices;
 	}
+	@JsonIgnore
 	public Set<User> getUsers() {
 		return users;
 	}
+	@JsonIgnore
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
@@ -98,10 +102,10 @@ public class Company implements Serializable {
 		this.phone = phone;
 	}
 	public long getTenant_id() {
-		return tenant_id;
+		return tenantid;
 	}
 	public void setTenant_id(long tenant_id) {
-		this.tenant_id = tenant_id;
+		this.tenantid = tenant_id;
 	}
 
 }

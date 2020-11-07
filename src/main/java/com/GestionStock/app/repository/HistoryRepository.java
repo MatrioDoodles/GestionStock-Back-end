@@ -9,6 +9,6 @@ import com.GestionStock.app.model.History;
 @Repository
 public interface HistoryRepository  extends JpaRepository<History, Long> {
 	
-	public List<History> getHistoryByTenantId(long tenant_id);
+	public List<History> findBytenantid(long tenant_id);
 
 }

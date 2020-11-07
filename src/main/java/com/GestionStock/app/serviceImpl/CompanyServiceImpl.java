@@ -45,6 +45,6 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Transactional(readOnly = true)
 	public Company getCompanyByTenantId(long tenant_id) {
-		return CompanyRepository.getCompanyByTenantId(tenant_id);
+		return CompanyRepository.findBytenantid(tenant_id);
 	}
 }

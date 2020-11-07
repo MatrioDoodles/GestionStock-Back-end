@@ -46,16 +46,16 @@ public class QuotationServiceImpl implements QuotationService {
 
 	@Transactional(readOnly = true)
 	public List<Quotation> getQuotationsByTenantId(long tenant_id) {
-		return QuotationRepository.getQuotationsByTenantId(tenant_id);
+		return QuotationRepository.findBytenantid(tenant_id);
 	}
 
 	@Transactional(readOnly = true)
 	public long nbQuotationsByTenantId(long tenant_id) {
-		return QuotationRepository.getQuotationsByTenantId(tenant_id).size();
+		return QuotationRepository.findBytenantid(tenant_id).size();
 	}
 
 	@Transactional(readOnly = true)
 	public List<Quotation> getQuotationsByClients(Client client) {
-		return QuotationRepository.getQuotationsByClients(client);
+		return QuotationRepository.findByclient(client);
 	}
 }
