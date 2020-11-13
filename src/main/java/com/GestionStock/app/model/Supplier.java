@@ -89,10 +89,10 @@ public class Supplier implements Serializable {
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
-	public long getTenant_id() {
+	public long getTenantid() {
 		return tenantid;
 	}
-	public void setTenant_id(long tenant_id) {
+	public void setTenantid(long tenant_id) {
 		this.tenantid = tenant_id;
 	}
 	public Set<Product> getIdproduct() {

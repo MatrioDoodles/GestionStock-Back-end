@@ -39,7 +39,7 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 
 	@Transactional(readOnly = true)
-	public Warehouse findWarehouseById(Long id_Warehouse) {
+	public Warehouse findWarehouseById(long id_Warehouse) {
 		return WarehouseRepository.findById(id_Warehouse).get();
 	}
 

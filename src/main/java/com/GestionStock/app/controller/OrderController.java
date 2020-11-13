@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.GestionStock.app.model.Client;
 import com.GestionStock.app.model.Order;
 import com.GestionStock.app.service.OrderService;
 
@@ -36,8 +35,8 @@ public class OrderController {
 		
 		return OrderService.addOrder(Order);
 	}
-	@PostMapping("/GetOrdersByClient")
-	public List<Order> GetOrdersByClient(@RequestBody Client client) {
+	@GetMapping("/GetOrdersByClient/{client}")
+	public List<Order> GetOrdersByClient(@PathVariable long client) {
 		
 		return OrderService.getOrdersByClient(client);
 	}

@@ -40,8 +40,8 @@ public class CategoryController {
 		
 		return CategoryService.updateCategory(Category);
 	}
-	@PostMapping("/SousCat")
-	public List<Category> GetSousCategory(@RequestBody Category category_primary) {
+	@GetMapping("/SousCat/{category_primary}")
+	public List<Category> GetSousCategory(@PathVariable long category_primary) {
 		return CategoryService.getSousCategories(category_primary);
 	}
 	@GetMapping("/GetAllCategoriesT/{id}")

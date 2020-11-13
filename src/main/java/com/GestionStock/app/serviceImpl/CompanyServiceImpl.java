@@ -39,7 +39,7 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Transactional(readOnly = true)
-	public Company findCompanyById(Long id_Company) {
+	public Company findCompanyById(long id_Company) {
 		return CompanyRepository.findById(id_Company).get();
 	}
 

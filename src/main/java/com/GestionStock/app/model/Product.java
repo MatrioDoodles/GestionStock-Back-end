@@ -133,10 +133,10 @@ public class Product implements Serializable {
 	public void setSupply_amount(long supply_amount) {
 		this.supply_amount = supply_amount;
 	}
-	public long getTenant_id() {
+	public long getTenantid() {
 		return tenantid;
 	}
-	public void setTenant_id(long tenant_id) {
+	public void setTenantid(long tenant_id) {
 		this.tenantid = tenant_id;
 	}
 	public Supplier getSupplier() {

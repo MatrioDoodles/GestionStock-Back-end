@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.GestionStock.app.model.Client;
 import com.GestionStock.app.model.Quotation;
 import com.GestionStock.app.service.QuotationService;
 
@@ -36,8 +35,8 @@ public class QuotationController {
 		
 		return QuotationService.addQuotation(Quotation);
 	}
-	@PostMapping("/GetAllQuotationByClient")
-	public List<Quotation> GetAllQuotationByClient(@RequestBody Client client) {
+	@GetMapping("/GetAllQuotationByClient/{client}")
+	public List<Quotation> GetAllQuotationByClient(@PathVariable long client) {
 		
 		return QuotationService.getQuotationsByClients(client);
 	}

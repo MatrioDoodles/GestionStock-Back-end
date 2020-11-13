@@ -101,10 +101,10 @@ public class Company implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public long getTenant_id() {
+	public long getTenantid() {
 		return tenantid;
 	}
-	public void setTenant_id(long tenant_id) {
+	public void setTenantid(long tenant_id) {
 		this.tenantid = tenant_id;
 	}
 

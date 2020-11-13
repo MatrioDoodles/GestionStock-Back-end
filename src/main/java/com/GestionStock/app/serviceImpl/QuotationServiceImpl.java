@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.GestionStock.app.model.Client;
 import com.GestionStock.app.model.Quotation;
 import com.GestionStock.app.repository.QuotationRepository;
 import com.GestionStock.app.service.QuotationService;
@@ -40,7 +39,7 @@ public class QuotationServiceImpl implements QuotationService {
 	}
 
 	@Transactional(readOnly = true)
-	public Quotation findQuotationById(Long id_Quotation) {
+	public Quotation findQuotationById(long id_Quotation) {
 		return QuotationRepository.findById(id_Quotation).get();
 	}
 
@@ -55,7 +54,7 @@ public class QuotationServiceImpl implements QuotationService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Quotation> getQuotationsByClients(Client client) {
-		return QuotationRepository.findByclient(client);
+	public List<Quotation> getQuotationsByClients(long client) {
+		return QuotationRepository.findByclient_Id(client);
 	}
 }

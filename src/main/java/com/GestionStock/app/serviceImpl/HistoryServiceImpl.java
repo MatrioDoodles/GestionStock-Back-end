@@ -32,7 +32,7 @@ public class HistoryServiceImpl implements HistoryService{
 	}
 
 	@Transactional(readOnly = true)
-	public History findHistoryById(Long id_History) {
+	public History findHistoryById(long id_History) {
 		return historyRepository.findById(id_History).get();
 	}
 

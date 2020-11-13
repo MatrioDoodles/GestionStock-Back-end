@@ -12,7 +12,7 @@ public interface ClientService {
 	public Client addClient(Client Client);
 	public Client updateClient(Client Client);
 	public void deleteClient(long id);
-	public Client findClientById(Long id_Client);
+	public Client findClientById(long id_Client);
 	public List<Client> allClient();
 	public List<Client> getClientsByTenantId(long tenant_id);
 	public long nbClientsByTenantId(long tenant_id);

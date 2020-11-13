@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.GestionStock.app.model.Category;
 import com.GestionStock.app.model.Product;
-import com.GestionStock.app.model.Supplier;
-import com.GestionStock.app.model.Warehouse;
 import com.GestionStock.app.service.ProductService;
 
 @RestController
@@ -38,18 +35,18 @@ public class ProductController {
 		
 		return ProductService.addProduct(Product);
 	}
-	@PostMapping("/GetProductsByWarehouse")
-	public List<Product> GetProductsByWarehouse(@RequestBody Warehouse warehouse) {
+	@GetMapping("/GetProductsByWarehouse/{warehouse}")
+	public List<Product> GetProductsByWarehouse(@PathVariable long warehouse) {
 		
 		return ProductService.getProductsByWarehouse(warehouse);
 	}
-	@PostMapping("/GetProductsBySupplier")
-	public List<Product> GetProductsBySupplier(@RequestBody Supplier supplier) {
+	@GetMapping("/GetProductsBySupplier/{supplier}")
+	public List<Product> GetProductsBySupplier(@PathVariable long supplier) {
 		
 		return ProductService.getProductsBySupplier(supplier);
 	}
-	@PostMapping("/GetProductsByCategory")
-	public List<Product> GetProductsByCategory(@RequestBody Category category) {
+	@GetMapping("/GetProductsByCategory/{category}")
+	public List<Product> GetProductsByCategory(@PathVariable long category) {
 		
 		return ProductService.getProductsByCaterory(category);
 	}

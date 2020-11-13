@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.GestionStock.app.model.Client;
 import com.GestionStock.app.model.Invoice;
-import com.GestionStock.app.model.Order;
 import com.GestionStock.app.repository.InvoiceRepository;
 import com.GestionStock.app.service.InvoiceService;
 
@@ -41,7 +39,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 	}
 
 	@Transactional(readOnly = true)
-	public Invoice findInvoiceById(Long id_Invoice) {
+	public Invoice findInvoiceById(long id_Invoice) {
 		return InvoiceRepository.findById(id_Invoice).get();
 	}
 
@@ -56,12 +54,12 @@ public class InvoiceServiceImpl implements InvoiceService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Invoice> getInvoicesClient(Client client) {
-		return InvoiceRepository.findByclient(client);
+	public List<Invoice> getInvoicesClient(long client) {
+		return InvoiceRepository.findByclient_Id(client);
 	}
 
 	@Transactional(readOnly = true)
-	public Invoice getInvoiceByOrder(Order order) {
-		return InvoiceRepository.findByorder(order);
+	public Invoice getInvoiceByOrder(long order) {
+		return InvoiceRepository.findByorder_Id(order);
 	}
 }

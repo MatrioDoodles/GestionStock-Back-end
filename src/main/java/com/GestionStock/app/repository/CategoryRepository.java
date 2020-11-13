@@ -10,6 +10,6 @@ import com.GestionStock.app.model.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long>{
 
-	public List<Category> findBycategoryprimary(Category categoryprimary);
+	public List<Category> findBycategoryprimary_Id(long categoryprimary);
 	public List<Category> findBytenantid(long tenant_id);
 }

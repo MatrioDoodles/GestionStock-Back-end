@@ -40,7 +40,7 @@ public class SubscriptionServiceImpl  implements SubscriptionService{
 	}
 
 	@Transactional(readOnly = true)
-	public Subscription findSubscriptionById(Long id_Subscription) {
+	public Subscription findSubscriptionById(long id_Subscription) {
 		return SubscriptionRepository.findById(id_Subscription).get();
 	}
 

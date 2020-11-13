@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.GestionStock.app.model.Client;
 import com.GestionStock.app.model.Invoice;
-import com.GestionStock.app.model.Order;
 import com.GestionStock.app.service.InvoiceService;
 
 @RestController
@@ -37,13 +35,13 @@ public class InvoiceController {
 		
 		return InvoiceService.addInvoice(Invoice);
 	}
-	@PostMapping("/InvoiceByClient")
-	public List<Invoice> GetInvoiceByClient(@RequestBody Client client) {
+	@GetMapping("/InvoiceByClient/{client}")
+	public List<Invoice> GetInvoiceByClient(@PathVariable long client) {
 		
 		return InvoiceService.getInvoicesClient(client);
 	}
-	@PostMapping("/InvoiceByOrder")
-	public Invoice GetInvoiceByOrde(@RequestBody Order order) {
+	@GetMapping("/InvoiceByOrder/{order}")
+	public Invoice GetInvoiceByOrde(@PathVariable long order) {
 		
 		return InvoiceService.getInvoiceByOrder(order);
 	}

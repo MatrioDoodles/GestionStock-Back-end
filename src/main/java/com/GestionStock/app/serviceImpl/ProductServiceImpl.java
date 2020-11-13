@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.GestionStock.app.model.Category;
 import com.GestionStock.app.model.Product;
-import com.GestionStock.app.model.Supplier;
-import com.GestionStock.app.model.Warehouse;
 import com.GestionStock.app.repository.ProductRepository;
 import com.GestionStock.app.service.ProductService;
 
@@ -43,7 +40,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Transactional(readOnly = true)
-	public Product findProductById(Long id_Product) {
+	public Product findProductById(long id_Product) {
 		return ProductRepository.findById(id_Product).get();
 	}
 
@@ -53,18 +50,18 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Transactional(readOnly = true)
-	public List<Product> getProductsByWarehouse(Warehouse warehouse) {
-		return ProductRepository.findBywarehouse(warehouse);
+	public List<Product> getProductsByWarehouse(long warehouse) {
+		return ProductRepository.findBywarehouse_Id(warehouse);
 	}
 
 	@Transactional(readOnly = true)
-	public List<Product> getProductsByCaterory(Category category) {
-		return ProductRepository.findBycategory(category);
+	public List<Product> getProductsByCaterory(long category) {
+		return ProductRepository.findBycategory_Id(category);
 	}
 
 	@Transactional(readOnly = true)
-	public List<Product> getProductsBySupplier(Supplier supplier) {
-		return ProductRepository.findBysupplier(supplier);
+	public List<Product> getProductsBySupplier(long supplier) {
+		return ProductRepository.findBysupplier_Id(supplier);
 	}
 
 	@Transactional(readOnly = true)

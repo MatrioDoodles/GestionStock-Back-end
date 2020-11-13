@@ -39,7 +39,7 @@ public class RoleServiceImpl implements RoleService{
 	}
 
 	@Transactional(readOnly = true)
-	public Role findRoleById(Long id_Role) {
+	public Role findRoleById(long id_Role) {
 		return RoleRepository.findById(id_Role).get();
 	}
 }

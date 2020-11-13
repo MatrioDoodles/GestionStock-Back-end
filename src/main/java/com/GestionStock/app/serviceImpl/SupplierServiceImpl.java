@@ -40,7 +40,7 @@ public class SupplierServiceImpl implements SupplierService{
 	}
 
 	@Transactional(readOnly = true)
-	public Supplier findSupplierById(Long id_Supplier) {
+	public Supplier findSupplierById(long id_Supplier) {
 		return SupplierRepository.findById(id_Supplier).get();
 	}
 

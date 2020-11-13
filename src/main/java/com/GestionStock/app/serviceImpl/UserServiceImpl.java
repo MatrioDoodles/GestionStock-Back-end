@@ -39,18 +39,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional(readOnly = true)
-	public User findUserById(Long id_user) {
+	public User findUserById(long id_user) {
 		return userRepository.findById(id_user).get();
 	}
 
 	@Transactional(readOnly = true)
-	public List<User> getUsersByTenantId(User tenant) {
-		return userRepository.findBytenant(tenant);
+	public List<User> getUsersByTenantId(long tenant) {
+		return userRepository.findBytenant_Id(tenant);
 	}
 
 	@Transactional(readOnly = true)
-	public long nbUsersByTenantId(User tenant) {
-		return userRepository.findBytenant(tenant).size();
+	public long nbUsersByTenantId(long tenant) {
+		return userRepository.findBytenant_Id(tenant).size();
 	}
 
 	@Override

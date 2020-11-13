@@ -15,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity(name="T_order")
 public class Order implements Serializable{
@@ -28,6 +30,7 @@ public class Order implements Serializable{
 	@Column(name="ID_ORDER", unique = true)
 	private long id;
 	private String description;
+	private String matricule;
 	private Boolean paid;
 	private Boolean shipped;
 	private Boolean aborted;
@@ -55,10 +58,23 @@ public class Order implements Serializable{
 	private Set<Product> products;
 	
 	
-	
+	public String getMatricule() {
+		return matricule;
+	}
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
+	}
+	public Invoice getInvoice() {
+		return invoice;
+	}
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
+	}
+	@JsonIgnore
 	public User getUser() {
 		return user;
 	}
+	@JsonIgnore
 	public void setUser(User user) {
 		this.user = user;
 	}
@@ -128,10 +144,10 @@ public class Order implements Serializable{
 	public void setPay_date(Date pay_date) {
 		this.pay_date = pay_date;
 	}
-	public long getTenant_id() {
+	public long getTenantid() {
 		return tenantid;
 	}
-	public void setTenant_id(long tenant_id) {
+	public void setTenantid(long tenant_id) {
 		this.tenantid = tenant_id;
 	}
 	

@@ -104,10 +104,10 @@ public class Client implements Serializable {
 	public void setAmount_bought(Float amount_bought) {
 		this.amount_bought = amount_bought;
 	}
-	public long getTenant_id() {
+	public long getTenantid() {
 		return tenantid;
 	}
-	public void setTenant_id(long tenant_id) {
+	public void setTenantid(long tenant_id) {
 		this.tenantid = tenant_id;
 	}
 	

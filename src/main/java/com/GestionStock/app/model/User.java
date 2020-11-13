@@ -50,23 +50,23 @@ public class User implements UserDetails {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_role")
 	private Role role;
-	@OneToMany(mappedBy = "tenant",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "tenant",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	private Set<User> users;
-	@OneToMany(mappedBy = "creating_user",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "creating_user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	private Set<History> creating_users;
-	@OneToMany(mappedBy = "last_interacting_user",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "last_interacting_user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	private Set<History> last_interacting_users;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="id_tenant")
 	private User tenant;
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	private Set<Product> products;
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	private Set<Quotation> quotations;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="id_company")
 	private Company company;
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	private Set<Client> clients;
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_subscription")
@@ -240,7 +240,7 @@ public class User implements UserDetails {
 		this.password = password;
 	}
 
-
+	@JsonIgnore
 	public User getTenant() {
 		return tenant;
 	}

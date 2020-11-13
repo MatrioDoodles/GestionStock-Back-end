@@ -40,13 +40,13 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Transactional(readOnly = true)
-	public Category findCategoryById(Long id_Category) {
+	public Category findCategoryById(long id_Category) {
 		return CategoryRepository.findById(id_Category).get();
 	}
 
 	@Transactional(readOnly = true)
-	public List<Category> getSousCategories(Category category_primary) {
-		return CategoryRepository.findBycategoryprimary(category_primary);
+	public List<Category> getSousCategories(long category_primary) {
+		return CategoryRepository.findBycategoryprimary_Id(category_primary);
 	}
 
 	@Transactional(readOnly = true)

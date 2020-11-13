@@ -70,10 +70,10 @@ public class History implements Serializable {
 	public void setLast_interacting_user(User last_interacting_user) {
 		this.last_interacting_user = last_interacting_user;
 	}
-	public long getTenant_id() {
+	public long getTenantid() {
 		return tenantid;
 	}
-	public void setTenant_id(long tenant_id) {
+	public void setTenantid(long tenant_id) {
 		this.tenantid = tenant_id;
 	}
 

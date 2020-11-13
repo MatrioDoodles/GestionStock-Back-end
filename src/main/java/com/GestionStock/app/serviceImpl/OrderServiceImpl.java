@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.GestionStock.app.model.Client;
 import com.GestionStock.app.model.Order;
 import com.GestionStock.app.repository.OrderRepository;
 import com.GestionStock.app.service.OrderService;
@@ -40,7 +39,7 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Transactional(readOnly = true)
-	public Order findOrderById(Long id_Order) {
+	public Order findOrderById(long id_Order) {
 		return OrderRepository.findById(id_Order).get();
 	}
 
@@ -55,7 +54,7 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Transactional(readOnly = true)
-	public List<Order> getOrdersByClient(Client client) {
-		return OrderRepository.findByclient(client);
+	public List<Order> getOrdersByClient(long client) {
+		return OrderRepository.findByclient_Id(client);
 	}
 }

@@ -66,10 +66,10 @@ public class Quotation implements Serializable
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
-	public long getTenant_id() {
+	public long getTenantid() {
 		return tenantid;
 	}
-	public void setTenant_id(long tenant_id) {
+	public void setTenantid(long tenant_id) {
 		this.tenantid = tenant_id;
 	}
 

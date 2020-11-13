@@ -46,8 +46,8 @@ public class UserController {
 	public User getUserByUsername(@PathVariable("username") String username){  
 	return userService.findUserByUsername(username);  
 	}
-	@PostMapping("/GetAllUsersT")
-	public List<User> GetUserByTenantId(@RequestBody User tenant) {
+	@GetMapping("/GetAllUsersT/{tenant}")
+	public List<User> GetUserByTenantId(@PathVariable("tenant") long tenant) {
 		return userService.getUsersByTenantId(tenant);
 	}
 

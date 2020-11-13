@@ -39,7 +39,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Transactional(readOnly = true)
-	public Client findClientById(Long id_Client) {
+	public Client findClientById(long id_Client) {
 		return ClientRepository.findById(id_Client).get();
 	}
 

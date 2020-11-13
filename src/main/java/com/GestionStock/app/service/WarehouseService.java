@@ -13,7 +13,7 @@ public interface WarehouseService {
 	public Warehouse addWarehouse(Warehouse Warehouse);
 	public Warehouse updateWarehouse(Warehouse Warehouse);
 	public void deleteWarehouse(Warehouse Warehouse);
-	public Warehouse findWarehouseById(Long id_Warehouse);
+	public Warehouse findWarehouseById(long id_Warehouse);
 	public List<Warehouse> allWarehouse();
 	public List<Warehouse> getWarehousesByTenantId(long tenant_id);
 	public long nbWarehousesByTenantId(long tenant_id);

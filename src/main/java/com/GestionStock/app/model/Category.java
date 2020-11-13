@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name="category")
 public class Category implements Serializable {
 	
@@ -27,6 +29,7 @@ public class Category implements Serializable {
 	private long id;
 	private String label;
 	private String description;
+	private boolean catprimary;
 	private long tenantid;
 	@OneToMany(mappedBy = "categoryprimary", fetch = FetchType.EAGER)
 	private Set<Category> sous_category;
@@ -37,16 +40,23 @@ public class Category implements Serializable {
 	private Set<Product> products;
 	
 	
-	
-	public Category getCategory_primary() {
+	public Category getCategoryprimary() {
 		return categoryprimary;
 	}
-	public void setCategory_primary(Category category_primary) {
-		this.categoryprimary = category_primary;
+	public void setCategoryprimary(Category categoryprimary) {
+		this.categoryprimary = categoryprimary;
 	}
+	public boolean isCatprimary() {
+		return catprimary;
+	}
+	public void setCatprimary(boolean catprimary) {
+		this.catprimary = catprimary;
+	}
+	@JsonIgnore
 	public Set<Category> getSous_category() {
 		return sous_category;
 	}
+	@JsonIgnore
 	public void setSous_category(Set<Category> sous_category) {
 		this.sous_category = sous_category;
 	}
@@ -74,10 +84,10 @@ public class Category implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public long getTenant_id() {
+	public long getTenantid() {
 		return tenantid;
 	}
-	public void setTenant_id(long tenant_id) {
+	public void setTenantid(long tenant_id) {
 		this.tenantid = tenant_id;
 	}
 
