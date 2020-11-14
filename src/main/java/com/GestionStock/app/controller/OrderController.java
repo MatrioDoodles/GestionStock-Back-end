@@ -54,8 +54,8 @@ public class OrderController {
 		return OrderService.getOrdersByTenantId(id);
 	}
 
-	@DeleteMapping("/DelOrder")
-	public void DelAscenseur(@RequestBody Order Order) {
+	@DeleteMapping("/DelOrder{Order}")
+	public void DelAscenseur(@PathVariable long Order) {
 		
 		OrderService.deleteOrder(Order);
 			//return "Commande Supprimé";

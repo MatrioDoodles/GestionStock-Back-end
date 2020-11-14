@@ -12,7 +12,7 @@ public interface SupplierService {
 
 	public Supplier addSupplier(Supplier Supplier);
 	public Supplier updateSupplier(Supplier Supplier);
-	public void deleteSupplier(Supplier Supplier);
+	public void deleteSupplier(long Supplier);
 	public Supplier findSupplierById(long id_Supplier);
 	public List<Supplier> allSupplier();
 	public List<Supplier> getSuppliersByTenantId(long tenant_id);

@@ -33,8 +33,8 @@ public class InvoiceServiceImpl implements InvoiceService {
 	}
 
 	@Transactional
-	public void deleteInvoice(Invoice Invoice) {
-		InvoiceRepository.delete(Invoice);
+	public void deleteInvoice(long Invoice) {
+		InvoiceRepository.deleteById(Invoice);
 		
 	}
 

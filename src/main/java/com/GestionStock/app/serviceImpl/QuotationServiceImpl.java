@@ -33,8 +33,8 @@ public class QuotationServiceImpl implements QuotationService {
 	}
 
 	@Transactional
-	public void deleteQuotation(Quotation Quotation) {
-		QuotationRepository.delete(Quotation);
+	public void deleteQuotation(long Quotation) {
+		QuotationRepository.deleteById(Quotation);
 		
 	}
 

@@ -64,8 +64,8 @@ public class ProductController {
 		return ProductService.getProductsByTenantId(id);
 	}
 
-	@DeleteMapping("/DelProduct")
-	public void DelAscenseur(@RequestBody Product Product) {
+	@DeleteMapping("/DelProduct/{Product}")
+	public void DelAscenseur(@PathVariable long Product) {
 		
 		ProductService.deleteProduct(Product);
 			//return "Produit Supprimé";

@@ -51,8 +51,8 @@ public class UserController {
 		return userService.getUsersByTenantId(tenant);
 	}
 
-	@DeleteMapping("/DelUser")
-	public void DelAscenseur(@RequestBody User user) {
+	@DeleteMapping("/DelUser/{User}")
+	public void DelAscenseur(@PathVariable long user) {
 		
 		userService.deleteUser(user);
 			//return "Utilisateur Supprimé";

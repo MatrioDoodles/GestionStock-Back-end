@@ -44,8 +44,8 @@ public class RoleController {
 		return RoleService.findRoleById(id);
 	}
 
-	@DeleteMapping("/DelRole")
-	public void DelAscenseur(@RequestBody Role Role) {
+	@DeleteMapping("/DelRole/{Role}")
+	public void DelAscenseur(@PathVariable long Role) {
 		
 		RoleService.deleteRole(Role);
 			//return "Role Supprimé";

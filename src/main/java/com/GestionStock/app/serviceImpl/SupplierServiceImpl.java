@@ -34,8 +34,8 @@ public class SupplierServiceImpl implements SupplierService{
 	}
 
 	@Transactional
-	public void deleteSupplier(Supplier Supplier) {
-		SupplierRepository.delete(Supplier);
+	public void deleteSupplier(long Supplier) {
+		SupplierRepository.deleteById(Supplier);
 		
 	}
 

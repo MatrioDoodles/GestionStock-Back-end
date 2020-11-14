@@ -47,8 +47,8 @@ public class SubscriptionController {
 		return SubscriptionService.getSubscriptionsByTenantId(id);
 	}
 
-	@DeleteMapping("/DelSubscription")
-	public void DelAscenseur(@RequestBody Subscription Subscription) {
+	@DeleteMapping("/DelSubscription/{Subscription}")
+	public void DelAscenseur(@PathVariable long Subscription) {
 		
 		SubscriptionService.deleteSubscription(Subscription);
 			//return "Abonnement Supprimé";

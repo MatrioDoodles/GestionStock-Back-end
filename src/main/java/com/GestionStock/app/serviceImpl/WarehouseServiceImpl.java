@@ -33,8 +33,8 @@ public class WarehouseServiceImpl implements WarehouseService{
 	}
 
 	@Transactional
-	public void deleteWarehouse(Warehouse Warehouse) {
-		WarehouseRepository.delete(Warehouse);
+	public void deleteWarehouse(long Warehouse) {
+		WarehouseRepository.deleteById(Warehouse);
 		
 	}
 

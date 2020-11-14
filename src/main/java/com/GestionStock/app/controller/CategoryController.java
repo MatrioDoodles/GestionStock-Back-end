@@ -29,6 +29,16 @@ public class CategoryController {
 	{
 		return CategoryService.allCategory();
 	}
+	@GetMapping("/GetAllPrimaryCategorys")
+	public List<Category> GetAllPrimaryCategorys()
+	{
+		return CategoryService.getAllPrimaryCategories();
+	}
+	@GetMapping("/GetAllPrimaryCategorysT/{id}")
+	public List<Category> GetAllPrimaryCategorysT(@PathVariable long id)
+	{
+		return CategoryService.getAllPrimaryCategoriesT(id);
+	}
 	
 	@PostMapping("/addCategory")
 	public Category addCategory(@RequestBody Category Category) {
@@ -54,8 +64,8 @@ public class CategoryController {
 		return CategoryService.findCategoryById(id);
 	}
 
-	@DeleteMapping("/DelCategory")
-	public void DelAscenseur(@RequestBody Category Category) {
+	@DeleteMapping("/DelCategory/{Category}")
+	public void DelAscenseur(@PathVariable long Category) {
 		
 		CategoryService.deleteCategory(Category);
 			//return "Categorie Supprimé";

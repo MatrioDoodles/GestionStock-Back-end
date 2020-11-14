@@ -48,8 +48,8 @@ public class WarehouseController {
 		return WarehouseService.getWarehousesByTenantId(id);
 	}
 
-	@DeleteMapping("/DelWarehouse")
-	public void DelAscenseur(@RequestBody Warehouse Warehouse) {
+	@DeleteMapping("/DelWarehouse/{Warehouse}")
+	public void DelAscenseur(@PathVariable long Warehouse) {
 		
 		WarehouseService.deleteWarehouse(Warehouse);
 			//return "Entrepot Supprimé";

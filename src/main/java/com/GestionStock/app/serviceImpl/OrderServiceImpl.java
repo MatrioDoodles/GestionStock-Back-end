@@ -33,8 +33,8 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Transactional
-	public void deleteOrder(Order Order) {
-		OrderRepository.delete(Order);
+	public void deleteOrder(long Order) {
+		OrderRepository.deleteById(Order);
 		
 	}
 

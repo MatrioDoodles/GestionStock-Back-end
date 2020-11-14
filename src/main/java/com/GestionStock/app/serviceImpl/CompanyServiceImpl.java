@@ -33,8 +33,8 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Transactional
-	public void deleteCompany(Company Company) {
-		CompanyRepository.delete(Company);
+	public void deleteCompany(long Company) {
+		CompanyRepository.deleteById(Company);
 		
 	}
 

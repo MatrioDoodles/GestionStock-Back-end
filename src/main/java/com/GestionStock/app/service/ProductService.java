@@ -12,7 +12,7 @@ public interface ProductService {
 	
 	public Product addProduct(Product Product);
 	public Product updateProduct(Product Product);
-	public void deleteProduct(Product Product);
+	public void deleteProduct(long Product);
 	public Product findProductById(long id_Product);
 	public List<Product> allProduct();
 	public List<Product> getProductsByTenantId(long tenant_id);

@@ -59,8 +59,8 @@ public class InvoiceController {
 		return InvoiceService.getInvoicesByTenantId(id);
 	}
 
-	@DeleteMapping("/DelInvoice")
-	public void DelAscenseur(@RequestBody Invoice Invoice) {
+	@DeleteMapping("/DelInvoice/{Invoice}")
+	public void DelAscenseur(@PathVariable long Invoice) {
 		
 		InvoiceService.deleteInvoice(Invoice);
 			//return "Facture Supprimé";

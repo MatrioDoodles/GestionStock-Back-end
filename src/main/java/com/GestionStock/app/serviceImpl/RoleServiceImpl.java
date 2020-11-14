@@ -33,8 +33,8 @@ public class RoleServiceImpl implements RoleService{
 	}
 
 	@Transactional
-	public void deleteRole(Role Role) {
-		RoleRepository.delete(Role);
+	public void deleteRole(long Role) {
+		RoleRepository.deleteById(Role);
 		
 	}
 

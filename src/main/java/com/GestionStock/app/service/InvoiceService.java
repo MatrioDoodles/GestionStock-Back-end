@@ -12,7 +12,7 @@ public interface InvoiceService {
 
 	public Invoice addInvoice(Invoice Invoice);
 	public Invoice updateInvoice(Invoice Invoice);
-	public void deleteInvoice(Invoice Invoice);
+	public void deleteInvoice(long Invoice);
 	public Invoice findInvoiceById(long id_Invoice);
 	public List<Invoice> allInvoice();
 	public List<Invoice> getInvoicesByTenantId(long tenant_id);

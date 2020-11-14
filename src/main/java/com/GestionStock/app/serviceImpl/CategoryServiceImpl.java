@@ -34,8 +34,8 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Transactional
-	public void deleteCategory(Category Category) {
-		CategoryRepository.delete(Category);
+	public void deleteCategory(long Category) {
+		CategoryRepository.deleteById(Category);
 		
 	}
 
@@ -57,5 +57,15 @@ public class CategoryServiceImpl implements CategoryService {
 	@Transactional(readOnly = true)
 	public long nbCategoriesByTenantId(long tenant_id) {
 		return CategoryRepository.findBytenantid(tenant_id).size();
+	}
+
+	@Transactional(readOnly = true)
+	public List<Category> getAllPrimaryCategories() {
+		return CategoryRepository.findByCatprimaryFalse();
+	}
+
+	@Override
+	public List<Category> getAllPrimaryCategoriesT(long tenant) {
+		return CategoryRepository.findByCatprimaryFalseAndTenantid(tenant);
 	}
 }

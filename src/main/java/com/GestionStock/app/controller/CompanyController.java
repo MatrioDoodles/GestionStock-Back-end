@@ -50,8 +50,8 @@ public class CompanyController {
 		return CompanyService.getCompanyByTenantId(id);
 	}
 
-	@DeleteMapping("/DelCompany")
-	public void DelAscenseur(@RequestBody Company Company) {
+	@DeleteMapping("/DelCompany/{Company}")
+	public void DelAscenseur(@PathVariable long Company) {
 		
 		CompanyService.deleteCompany(Company);
 			//return "Entreprise Supprimé";

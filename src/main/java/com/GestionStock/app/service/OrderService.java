@@ -12,7 +12,7 @@ public interface OrderService {
 
 	public Order addOrder(Order Order);
 	public Order updateOrder(Order Order);
-	public void deleteOrder(Order Order);
+	public void deleteOrder(long Order);
 	public Order findOrderById(long id_Order);
 	public List<Order> allOrder();
 	public List<Order> getOrdersByTenantId(long tenant_id);

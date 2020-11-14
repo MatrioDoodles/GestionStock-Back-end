@@ -12,7 +12,7 @@ public interface UserService {
 
 	public User addUser(User user);
 	public User updateUser(User user);
-	public void deleteUser(User user);
+	public void deleteUser(long user);
 	public User findUserById(long id_user);
 	public User findUserByUsername(String username);
 	public List<User> allUser();

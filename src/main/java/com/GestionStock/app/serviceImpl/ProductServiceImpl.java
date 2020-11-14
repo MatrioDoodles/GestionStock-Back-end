@@ -34,8 +34,8 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Transactional
-	public void deleteProduct(Product Product) {
-		ProductRepository.delete(Product);
+	public void deleteProduct(long Product) {
+		ProductRepository.deleteById(Product);
 		
 	}
 

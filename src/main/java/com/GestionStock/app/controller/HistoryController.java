@@ -51,8 +51,8 @@ public class HistoryController {
 		return HistoryService.findHistoryById(id);
 	}
 
-	@DeleteMapping("/DelHistory")
-	public void DelAscenseur(@RequestBody History History) {
+	@DeleteMapping("/DelHistory/{History}")
+	public void DelAscenseur(@PathVariable long History) {
 		
 		HistoryService.deleteHistory(History);
 			//return "Historique Supprimé";

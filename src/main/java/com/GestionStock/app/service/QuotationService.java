@@ -12,7 +12,7 @@ public interface QuotationService {
 
 	public Quotation addQuotation(Quotation Quotation);
 	public Quotation updateQuotation(Quotation Quotation);
-	public void deleteQuotation(Quotation Quotation);
+	public void deleteQuotation(long Quotation);
 	public Quotation findQuotationById(long id_Quotation);
 	public List<Quotation> allQuotation();
 	public List<Quotation> getQuotationsByTenantId(long tenant_id);

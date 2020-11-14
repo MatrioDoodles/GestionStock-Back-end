@@ -49,8 +49,8 @@ public class SupplierController {
 	public List<Supplier> GetSupplierByTenantId(@PathVariable long id) {
 		return SupplierService.getSuppliersByTenantId(id);
 	}
-	@DeleteMapping("/DelSupplier")
-	public void DelAscenseur(@RequestBody Supplier Supplier) {
+	@DeleteMapping("/DelSupplier/{Supplier}")
+	public void DelAscenseur(@PathVariable long Supplier) {
 		
 		SupplierService.deleteSupplier(Supplier);
 			//return "Fournisseur Supprimé";

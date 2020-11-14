@@ -11,7 +11,7 @@ public interface SubscriptionService {
 
 	public Subscription addSubscription(Subscription Subscription);
 	public Subscription updateSubscription(Subscription Subscription);
-	public void deleteSubscription(Subscription Subscription);
+	public void deleteSubscription(long Subscription);
 	public Subscription findSubscriptionById(long id_Subscription);
 	public List<Subscription> allSubscription();
 	public Subscription getSubscriptionsByTenantId(long tenant_id);

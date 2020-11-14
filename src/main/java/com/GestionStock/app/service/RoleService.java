@@ -12,7 +12,7 @@ public interface RoleService {
 
 	public Role addRole(Role Role);
 	public Role updateRole(Role Role);
-	public void deleteRole(Role Role);
+	public void deleteRole(long Role);
 	public Role findRoleById(long id_Role);
 	public List<Role> allRole();
 }

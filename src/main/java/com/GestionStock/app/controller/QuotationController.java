@@ -53,8 +53,8 @@ public class QuotationController {
 	public List<Quotation> GetQuotationByTenantId(@PathVariable long id) {
 		return QuotationService.getQuotationsByTenantId(id);
 	}
-	@DeleteMapping("/DelQuotation")
-	public void DelAscenseur(@RequestBody Quotation Quotation) {
+	@DeleteMapping("/DelQuotation/{Quotation}")
+	public void DelAscenseur(@PathVariable long Quotation) {
 		
 		QuotationService.deleteQuotation(Quotation);
 			//return "Devis Supprimé";

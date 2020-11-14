@@ -26,9 +26,9 @@ public class HistoryServiceImpl implements HistoryService{
 	}
 
 	@Transactional
-	public void deleteHistory(History History) {
+	public void deleteHistory(long History) {
 
-		historyRepository.delete(History);
+		historyRepository.deleteById(History);
 	}
 
 	@Transactional(readOnly = true)

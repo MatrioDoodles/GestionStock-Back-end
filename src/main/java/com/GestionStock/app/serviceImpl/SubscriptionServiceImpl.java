@@ -34,8 +34,8 @@ public class SubscriptionServiceImpl  implements SubscriptionService{
 	}
 
 	@Transactional
-	public void deleteSubscription(Subscription Subscription) {
-		SubscriptionRepository.delete(Subscription);
+	public void deleteSubscription(long Subscription) {
+		SubscriptionRepository.deleteById(Subscription);
 		
 	}
 

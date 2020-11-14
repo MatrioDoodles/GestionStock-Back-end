@@ -11,10 +11,12 @@ public interface CategoryService {
 
 	public Category addCategory(Category Category);
 	public Category updateCategory(Category Category);
-	public void deleteCategory(Category Category);
+	public void deleteCategory(long Category);
 	public Category findCategoryById(long id_Category);
 	public List<Category> allCategory();
 	public List<Category> getSousCategories(long category_primary);
 	public List<Category> getCategoriesByTenantId(long tenant_id);
 	public long nbCategoriesByTenantId(long tenant_id);
+	public List<Category> getAllPrimaryCategories();
+	public List<Category> getAllPrimaryCategoriesT(long tenant);
 }
