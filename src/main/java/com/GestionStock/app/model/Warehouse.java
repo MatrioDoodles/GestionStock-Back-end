@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name="warehouse")
 public class Warehouse implements Serializable {
 
@@ -27,10 +29,11 @@ public class Warehouse implements Serializable {
 	@OneToMany(mappedBy = "warehouse",fetch = FetchType.EAGER)
 	private Set<Product> products;
 	
-	
+	@JsonIgnore
 	public Set<Product> getProducts() {
 		return products;
 	}
+	@JsonIgnore
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}

@@ -60,9 +60,11 @@ public class Category implements Serializable {
 	public void setSous_category(Set<Category> sous_category) {
 		this.sous_category = sous_category;
 	}
+	@JsonIgnore
 	public Set<Product> getProducts() {
 		return products;
 	}
+	@JsonIgnore
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
