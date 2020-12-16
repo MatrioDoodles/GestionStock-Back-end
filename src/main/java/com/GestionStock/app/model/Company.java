@@ -55,7 +55,6 @@ public class Company implements Serializable {
 	public Set<User> getUsers() {
 		return users;
 	}
-	@JsonIgnore
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}

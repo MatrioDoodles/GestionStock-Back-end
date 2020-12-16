@@ -15,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -43,32 +42,31 @@ public class User implements UserDetails {
 	private String phone;
 	private String adress;
 	private String username;
-	private String picture;
 	private String password;
 	@Transient
 	private Collection<? extends GrantedAuthority> authorities;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_role")
 	private Role role;
-	@OneToMany(mappedBy = "tenant",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "tenant",fetch = FetchType.EAGER)
 	private Set<User> users;
-	@OneToMany(mappedBy = "creating_user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "creating_user",fetch = FetchType.EAGER)
 	private Set<History> creating_users;
-	@OneToMany(mappedBy = "last_interacting_user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "last_interacting_user",fetch = FetchType.EAGER)
 	private Set<History> last_interacting_users;
 	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="id_tenant")
 	private User tenant;
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
 	private Set<Product> products;
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
 	private Set<Quotation> quotations;
-	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_company")
 	private Company company;
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
 	private Set<Client> clients;
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne
     @JoinColumn(name = "id_subscription")
 	private Subscription subscription;
 	
@@ -84,7 +82,6 @@ public class User implements UserDetails {
 		this.phone = phone;
 		this.adress = adress;
 		this.username = username;
-		this.picture = picture;
 		this.password = password;
 		this.role = role;
 		this.users = users;
@@ -128,10 +125,11 @@ public class User implements UserDetails {
 	public void setLast_interacting_users(Set<History> last_interacting_users) {
 		this.last_interacting_users = last_interacting_users;
 	}
+	@JsonIgnore
 	public Set<User> getUsers() {
 		return users;
 	}
-
+	@JsonIgnore
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
@@ -224,14 +222,6 @@ public class User implements UserDetails {
 		this.adress = adress;
 	}
 
-	public String getPicture() {
-		return picture;
-	}
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -240,7 +230,7 @@ public class User implements UserDetails {
 		this.password = password;
 	}
 
-	@JsonIgnore
+	
 	public User getTenant() {
 		return tenant;
 	}

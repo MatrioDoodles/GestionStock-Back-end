@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name="role")
 public class Role implements Serializable {
 
@@ -35,11 +37,12 @@ public class Role implements Serializable {
 	public void setLabel(String label) {
 		this.label = label;
 	}
-//	public Set<User> getUsers() {
-//		return users;
-//	}
-//	public void setUsers(Set<User> users) {
-//		this.users = users;
-//	}
+	@JsonIgnore
+	public Set<User> getUsers() {
+		return users;
+	}
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 
 }

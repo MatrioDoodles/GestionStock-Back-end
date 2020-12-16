@@ -3,6 +3,7 @@ package com.GestionStock.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.GestionStock.app.model.User;
+import com.GestionStock.app.service.CompanyService;
+import com.GestionStock.app.service.SubscriptionService;
 import com.GestionStock.app.service.UserService;
 
 @RestController
@@ -21,6 +24,10 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private CompanyService companytService;
+	@Autowired
+	private SubscriptionService SubService;
 	
 	@GetMapping("/GetAllUsers")
 	public List<User> GetAllUsers()
@@ -30,6 +37,12 @@ public class UserController {
 	
 	@PostMapping("/addUser")
 	public User addUser(@RequestBody User user) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String pass = encoder.encode(user.getPassword());
+		user.setPassword(pass);
+		user.setCompany(companytService.findCompanyById(user.getCompany().getId()));
+		user.setSubscription(SubService.findSubscriptionById(user.getSubscription().getId()));
+		user.setTenant(userService.findUserById(user.getTenant().getId()));
 		
 		return userService.addUser(user);
 	}

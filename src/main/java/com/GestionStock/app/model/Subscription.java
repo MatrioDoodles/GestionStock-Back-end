@@ -2,13 +2,15 @@ package com.GestionStock.app.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,8 +35,8 @@ public class Subscription implements Serializable {
 //	private long users_number;
 //	private long suppliers_number;
 	private long tenantid;
-	@OneToOne(mappedBy = "subscription",fetch = FetchType.EAGER)
-	private User users;
+	@OneToMany(mappedBy = "subscription",fetch = FetchType.EAGER)
+	private Set<User> users;
 	
 	
 
@@ -45,11 +47,11 @@ public class Subscription implements Serializable {
 		this.payed = payed;
 	}
 	@JsonIgnore
-	public User getUsers() {
+	public Set<User> getUsers() {
 		return users;
 	}
 	@JsonIgnore
-	public void setUsers(User users) {
+	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
 	public long getId() {
